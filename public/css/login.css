@@ -1,0 +1,28 @@
+body{
+	background-image: url('../img/login_bg.png');
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.box{
+	height: 700px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -40%;
+	transform: translate(-50%, -50%);
+}
+#bg{
+	height: 600px;
+	border-radius: 10%;
+}
+#logo{
+	height: 180px; width: 220px;
+	margin-bottom: 10px;
+}
+.form{
+	padding: 30px;
+}
+#info{
+	color: white;
+}

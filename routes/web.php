@@ -6,6 +6,8 @@
 | se incluye el código de archivos php externos, esto
 | para una mejor organización de las rutas del proyecto.
 |   ***Atte: Equipo Magenta.
+| Intent li = new Intent(MainActivity.this,Main2Activity.class);
+|           startActivity(li);
 |--------------------------------------------------------------------------
 */
 

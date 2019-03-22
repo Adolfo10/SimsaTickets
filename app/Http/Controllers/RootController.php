@@ -8,7 +8,8 @@ use App\Modelos\EquipoTrabajo;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
 use App\Modelos\Seguimiento;
-use App\Modelos\Tipopersona;
+//Aqui tambien "Tipopersona" por TipoPersona
+use App\Modelos\TipoPersona;
 use App\Modelos\Usuario;
 use Carbon\Carbon;
 use Collection;
@@ -22,9 +23,9 @@ class RootController extends Controller
     }
     
     function View_addEmpleado(){
-        //gera puto
+        //Cambie el "Tipopersona" por el "TipoPersona"
         $deps = Departamento::all();
-        $tpers = Tipopersona::all();
+        $tpers = TipoPersona::all();
         return view('root.addEmpleado', compact('deps', 'tpers'));
     }
 

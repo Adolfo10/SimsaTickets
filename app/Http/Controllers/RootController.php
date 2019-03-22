@@ -22,6 +22,7 @@ class RootController extends Controller
     }
     
     function View_addEmpleado(){
+        //gera puto
         $deps = Departamento::all();
         $tpers = Tipopersona::all();
         return view('root.addEmpleado', compact('deps', 'tpers'));

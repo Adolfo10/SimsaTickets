@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Modelos;
-
+//gera puto
 use Illuminate\Database\Eloquent\Model;
 use App\Modelos\Persona;
 

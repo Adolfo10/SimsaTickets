@@ -20,6 +20,10 @@ class TecMiddleware
         {
             abort(404);
         }
+        elseif(Session::get('persona')->CodTipoPersona ==null)
+        {
+            abort(404);
+        }
         return $next($request);
 
     }

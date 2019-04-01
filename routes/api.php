@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+
+//Se pondra el campo de api_token en la tabla de nuestros usuarios
+//'api_token' => String::random(60)
+//
+//
+//

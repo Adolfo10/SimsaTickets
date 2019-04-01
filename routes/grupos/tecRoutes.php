@@ -3,7 +3,10 @@
 //USUARIO TECNICO ----------------------------------------------------------------------------
 
 #Inicio
-Route::get('/tec', 'TecController@ViewHome');
+Route::get('/tec',['middleware'=>'tec',function()
+	{
+		return view('login');
+	}], 'TecController@ViewHome');
 
 #Administrar problemas
 Route::get('/tec_admin', 'TecController@View_admin');

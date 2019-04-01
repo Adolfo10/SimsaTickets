@@ -17,8 +17,13 @@ class TecMiddleware
     public function handle($request, Closure $next)
     {
         if(Session::get('persona')->CodTipoPersona <> 2)
+        {
             abort(404);
-
-        return $next($request);
+        }
+        else
+        {
+            return $next($request);
+        }
+        
     }
 }

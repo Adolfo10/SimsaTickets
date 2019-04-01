@@ -20,10 +20,7 @@ class TecMiddleware
         {
             abort(404);
         }
-        else
-        {
-            return $next($request);
-        }
-        
+        return $next($request);
+
     }
 }

@@ -14,7 +14,7 @@ use App\Modelos\Usuario;
 use Carbon\Carbon;
 use Collection;
 use Illuminate\Support\Facades\Hash;
-use Psy\Util\Str;
+use Illuminate\Support\Str;
 use Session;
 
 class RootController extends Controller

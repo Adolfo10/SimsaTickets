@@ -16,9 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/login',function (Request $request){
+/*Route::post('/login',function (Request $request){
     $lg=new LoginController();
 //    $res=new
 
-});
+});*/
+Route::post('/loginAnd','AndroidController@IniciarSesion');
 

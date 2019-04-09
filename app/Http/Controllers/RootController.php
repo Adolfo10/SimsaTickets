@@ -13,6 +13,8 @@ use App\Modelos\TipoPersona;
 use App\Modelos\Usuario;
 use Carbon\Carbon;
 use Collection;
+use Illuminate\Support\Facades\Hash;
+use Psy\Util\Str;
 use Session;
 
 class RootController extends Controller
@@ -94,8 +96,9 @@ class RootController extends Controller
 
         Usuario::create([
             'NomUsuario' => $user_nom,
-            'PassUsuario' => $newUser->get('pass'),
-            'CodEmp' => $newUser->get('person_id')
+            'PassUsuario' => Hash::make($newUser->get('pass')),
+            'CodEmp' => $newUser->get('person_id'),
+            'api_token'=>Str::random(60)
         ]);
         return collect(['reg' => true, 'msj' => 'El usuario "'.$user_nom.'" fue creado con éxito']);
     }

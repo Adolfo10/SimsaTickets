@@ -113,7 +113,7 @@ class RootController extends Controller
         $segs = Seguimiento::whereBetween('fecha_prob', [$inicio, $final])->get();
 
         $m = 1;
-        for($i = 0; $i < count($anio); $i++){
+        for($i = 0, $iMax = count($anio); $i < $iMax; $i++){
             $mes = sprintf('%02d', $m);
             $ini = $fecha->format('Y-'.$mes.'-01');
             $fin = $fecha->format('Y-'.$mes.'-31');

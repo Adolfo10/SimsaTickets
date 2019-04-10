@@ -7,6 +7,7 @@ namespace App\Http;
 use Carbon\Carbon;
 use function collect;
 use function json_encode;
+use Illuminate\Http\Response;
 
 class Respuesta
 {
@@ -30,6 +31,6 @@ class Respuesta
     }
 
     public function enJson(){
-        return json_encode($this);
+        return Response::json(json_encode($this));
     }
 }

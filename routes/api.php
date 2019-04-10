@@ -35,6 +35,7 @@ Route::get('/comparacion',function (){
     $datos=[];
     $datos["passwordBD"]=\App\Modelos\Usuario::find(1003)->PassUsuario;
     $datos["micontra"]=\Illuminate\Support\Facades\Hash::make("123");
+    dd(\Illuminate\Support\Facades\Hash::check("123",\App\Modelos\Usuario::find(1003)->PassUsuario));
     return $datos;
 });
 

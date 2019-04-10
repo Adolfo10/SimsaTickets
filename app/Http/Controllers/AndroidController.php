@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class AndroidController extends Controller
 {
+
+    /*public function __construct()
+    {
+        $this->middleware('api')->except($this->IniciarSesion());
+    }*/
+
     function IniciarSesion(Request $request){
         $GetUs  = $request->input("NomUsuario");
         $GetPas = $request->input("PassUsuario");
@@ -26,10 +32,10 @@ class AndroidController extends Controller
 
                 switch ($persona->CodTipoPersona){
                     case 1:
-                        Session::put('img', 'root');
-                        Session::put('tipoPer', 'Administrador');
+                       // Session::put('img', 'root'); kiko
+                       // Session::put('tipoPer', 'Administrador');
 //                        return redirect('/root');
-                    return dd($datos);
+                    return $datos;
                         break;
                     case 2:
                         Session::put('img', 'tec');

@@ -22,7 +22,6 @@ class HomeController extends Controller
       $GetUs  = $request->input("NomUsuario");
       $GetPas = $request->input("PassUsuario");
       
-//      $usuario = Usuario::where('NomUsuario', '=', $GetUs)->where('PassUsuario', '=', $GetPas)->get()->first();
       $usuario = Usuario::where('NomUsuario', '=', $GetUs)->get()->first();
 
       if($usuario != null){

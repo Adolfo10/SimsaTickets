@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\Modelos\Persona;
@@ -17,19 +18,21 @@ class AndroidController extends Controller
         $this->middleware('auth')->except($this->IniciarSesion());
     }*/
 
-    function IniciarSesion(Request $request){
-        $GetUs  = $request->input("NomUsuario");
+    function IniciarSesion(Request $request)
+    {
+        $GetUs = $request->input("NomUsuario");
         $GetPas = $request->input("PassUsuario");
-        $passenc=Hash::make($GetPas);
-        $datos=[];
+        $datos = [];
 
         $usuario = Usuario::where('NomUsuario', '=', $GetUs)->get()->first();
 
-        if($usuario != null){
-            if ($passenc==$usuario->PassUsuario) {
+        if ($usuario != null) {
+            if (Hash::check($GetPas, $usuario->PassUsuario)) {
+
                 $persona = Persona::find($usuario->CodEmp);
                 $datos['user'] = $usuario;
                 $datos['persona'] = $persona;
+
             }
         }
 

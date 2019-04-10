@@ -23,7 +23,7 @@ class AndroidController extends Controller
         $passenc=Hash::make($GetPas);
         $datos=[];
 
-        $usuario = Usuario::where('NomUsuario', '=', $GetUs)->where('PassUsuario','=',$passenc)->get()->first();
+        $usuario = Usuario::where('NomUsuario', '=', $GetUs)->get()->first();
 
         if($usuario != null){
                 $persona = Persona::find($usuario->CodEmp);

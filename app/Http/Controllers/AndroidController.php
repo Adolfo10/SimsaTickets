@@ -36,7 +36,7 @@ class AndroidController extends Controller
             }
         }
 
-        return json_encode($datos);
+        return ($datos);
     }
 
 }

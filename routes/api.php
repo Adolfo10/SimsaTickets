@@ -29,8 +29,8 @@ Route::post('/loginAnd', function (Request $r){
 
 
     $lg=new AndroidController();
-    $Res=new Respuesta($lg->IniciarSesion($r),200);
-    return Response::json($Res->enJson());
+
+    return ["datos"=>$lg->IniciarSesion($r)];
 });
 
 Route::get('/comparacion',function (){

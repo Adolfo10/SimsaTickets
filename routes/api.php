@@ -31,3 +31,10 @@ Route::post('/loginAnd', function (Request $r){
     return $Res->enJson();
 });
 
+Route::get('/comparacion',function (){
+    $datos=[];
+    $datos["passwordBD"]=\App\Modelos\Usuario::find(1003)->PassUsuario;
+    $datos["micontra"]=\Illuminate\Support\Facades\Hash::make("123");
+    return $datos;
+});
+

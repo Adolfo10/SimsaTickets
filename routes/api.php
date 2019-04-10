@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Respuesta;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AndroidController;
@@ -30,7 +31,7 @@ Route::post('/loginAnd', function (Request $r){
     $lg=new AndroidController();
     dd($lg->IniciarSesion($r,200));
     $Res=new Respuesta($lg->IniciarSesion($r,200));
-    return $Res->enJson();
+    return Response::json($Res->enJson());
 });
 
 Route::get('/comparacion',function (){

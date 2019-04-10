@@ -5,6 +5,8 @@ namespace App\Http;
 
 
 use Carbon\Carbon;
+use function collect;
+use function json_encode;
 
 class Respuesta
 {

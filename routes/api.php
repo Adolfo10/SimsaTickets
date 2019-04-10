@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Respuesta;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AndroidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +16,17 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
 /*Route::post('/login',function (Request $request){
     $lg=new LoginController();
 //    $res=new
 
 });*/
-Route::post('/loginAnd', 'AndroidController@IniciarSesion');
+Route::post('/loginAnd', function (Request $r){
+    $lg=new AndroidController();
+    $Res=new Respuesta($lg->loginapi($r),200);
+    return $Res->enJson();
+});
 

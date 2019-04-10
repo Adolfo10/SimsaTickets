@@ -12,7 +12,7 @@ class AndroidController extends Controller
 
     /*public function __construct()
     {
-        $this->middleware('api')->except($this->IniciarSesion());
+        $this->middleware('auth')->except($this->IniciarSesion());
     }*/
 
     function IniciarSesion(Request $request){

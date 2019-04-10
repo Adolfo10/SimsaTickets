@@ -31,7 +31,7 @@ class AndroidController extends Controller
                 $datos['persona']=$persona;
         }
 
-        return $datos;
+        return json_encode($datos);
     }
 
 }

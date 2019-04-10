@@ -26,9 +26,11 @@ class AndroidController extends Controller
         $usuario = Usuario::where('NomUsuario', '=', $GetUs)->get()->first();
 
         if($usuario != null){
+            if ($passenc==$usuario->PassUsuario) {
                 $persona = Persona::find($usuario->CodEmp);
-                $datos['user']=$usuario;
-                $datos['persona']=$persona;
+                $datos['user'] = $usuario;
+                $datos['persona'] = $persona;
+            }
         }
 
         return json_encode($datos);

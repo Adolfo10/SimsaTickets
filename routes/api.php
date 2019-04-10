@@ -24,7 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    $res=new
 
 });*/
-Route::get('/loginAnd', function (Request $r){
+Route::post('/loginAnd', function (Request $r){
     $lg=new AndroidController();
     dd($lg->IniciarSesion($r,200));
     $Res=new Respuesta($lg->IniciarSesion($r,200));

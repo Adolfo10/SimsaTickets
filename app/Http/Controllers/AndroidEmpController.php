@@ -15,13 +15,14 @@ class AndroidEmpController extends Controller
 
 //         $id = $request->input("id");
          $datoshist = [];
+         // me quede haciendo lo del historial del empleado asi que mañana lo ago del comparar keys para saber cual empleado es
 
          $historial= DB::table('problema')
              ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
              ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
              ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
              ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-             ->where('personas.id', '=', '2')
+             ->where('personas.id', '=', '21')
              ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
                  'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                  'problema.prioridad', 'problema.estatus')

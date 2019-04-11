@@ -33,7 +33,6 @@ class EmpController extends Controller
     function Historial(){
 
 
-        dd(Session::get('persona')->id->get());
 
 
         $historial= DB::table('problema')
@@ -41,7 +40,7 @@ class EmpController extends Controller
             ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
             ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
             ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-            //->where('problema.CodEmp', '=',)
+            ->where('problema.CodEmp', '=', Session::get('persona')->id)
            ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
                     'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                     'problema.prioridad', 'problema.estatus')

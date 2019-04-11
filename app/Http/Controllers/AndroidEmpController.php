@@ -55,7 +55,7 @@ class AndroidEmpController extends Controller
             ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
             ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
             ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-            ->where('problema.CodEmp','=', $Eqt[0]->CodEmp)
+            ->where('problema.CodEqTrab','=', $Eqt[0]->CodEmp)
             ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
                 'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                 'problema.prioridad', 'problema.estatus')

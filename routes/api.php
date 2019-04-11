@@ -44,6 +44,13 @@ Route::get('/comparacion',function (){
 });
 
 
+Route::get('/history',function (){
+    $hist = new AndroidEmpController();
+    return ["hist"=>$hist->history()];
+});
+
+
+
 
 Route::get('/mostrar',function (){
     $mt = new AndroidEmpController();
@@ -58,5 +65,8 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-
+Route::post('/regProb',function (Request $R){
+    $rp = new AndroidEmpController();
+    return ["pr"=>$rp->regProblema($R)];
+});
 

@@ -52,8 +52,8 @@ class AndroidEmpController extends Controller
 
 
 
+       return $Eqt["CodEmp"];
 
-         dd($Eqt->CodEmp);
 
 //
 //        $historial= DB::table('problema')
@@ -72,7 +72,7 @@ class AndroidEmpController extends Controller
 
 
 
-        return $Eqt;
+
 
 
 //        $historial= DB::table('problema')

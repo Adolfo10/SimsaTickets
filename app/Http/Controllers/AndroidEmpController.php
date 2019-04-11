@@ -43,12 +43,14 @@ class AndroidEmpController extends Controller
 
     function history(){
 
+         $Eqt = [];
+
         $Prob = Problema::all();
         $TipoProb = TipoProblema::all();
-        $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
+        $Eqt["equip"] = EquipoTrabajo::whereHas('persona')->with('persona')
             ->where('CodEmp', '=', '1')->get();
 
-        return $Equipos;
+        return $Eqt;
 
 
 //        $historial= DB::table('problema')

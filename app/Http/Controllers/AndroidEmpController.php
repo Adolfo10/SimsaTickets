@@ -14,21 +14,10 @@ class AndroidEmpController extends Controller
      function MostrarDatos(){
 
 //         $id = $request->input("id");
-         $datoshist = [];
+         $datosPer = [];
 
-         $historial= DB::table('problema')
-             ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
-             ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
-             ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
-             ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-             ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
-                 'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
-                 'problema.prioridad', 'problema.estatus')
-             ->orderBy('seguimiento.fecha_prob', 'desc')
-             ->get();
+         $datosPer["person"] =  Persona::find(1);
 
-         $datoshist["historial"] = $historial;
-
-         return ($datoshist);
+         return ($datosPer);
      }
 }

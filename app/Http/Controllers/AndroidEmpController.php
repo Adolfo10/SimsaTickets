@@ -22,7 +22,7 @@ class AndroidEmpController extends Controller
              ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
              ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
              ->join('problema_persona', 'personas.id', '=', 'problema_persona.CodEmp')
-             ->where('problema_persona.CodEmp','=', '21')
+             ->where('problema_persona.CodEmp','=', '3')
              ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
                  'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                  'problema.prioridad', 'problema.estatus')

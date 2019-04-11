@@ -72,7 +72,7 @@ class AndroidEmpController extends Controller
 
 
 
-        return $Eqt->CodEmp;
+        return $Eqt;
 
 
 //        $historial= DB::table('problema')

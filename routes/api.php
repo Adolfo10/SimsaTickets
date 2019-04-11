@@ -52,11 +52,7 @@ Route::get('/history',function (){
 
 
 
-Route::get('/mostrar',function (){
-    $mt = new AndroidEmpController();
-    return ["info"=>$mt->MostrarDatos()];
-
-});
+Route::get('/mostrar','AndroidEmpController@history');
 
 Route::post('/actualizar', function (Request $r){
 

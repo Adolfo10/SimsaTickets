@@ -52,7 +52,7 @@ class AndroidEmpController extends Controller
 
 
 
-       return $Eqt["CodEmp"];
+       return $Eqt[0]->CodEmp;
 
 
 //

@@ -51,5 +51,12 @@ Route::get('/mostrar',function (){
 
 });
 
+Route::post('/actualizar', function (Request $r){
+
+    $ac = new AndroidEmpController();
+    return ["Act"=>$ac->ActualizarDatos($r)];
+
+});
+
 
 

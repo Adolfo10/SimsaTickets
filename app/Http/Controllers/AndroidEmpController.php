@@ -20,4 +20,28 @@ class AndroidEmpController extends Controller
 
          return ($datosPer);
      }
+
+     function ActualizarDatos(Request $request){
+
+         $data = [];
+
+         $emp= Persona::find(3);
+
+         $emp->NomEmp=$request->input('NomEmp');
+         $emp->ApPat=$request->input('ApPat');
+         $emp->ApMat=$request->input('ApMat');
+         $emp->TelRed=$request->input('TelRed');
+         $emp->CelEmp=$request->input('CelEmp');
+         $emp->EmailEmp=$request->input('EmailEmp');
+         $emp->save();
+
+         $data["Persona"] = $emp;
+
+         return $data;
+
+
+
+
+     }
+
 }

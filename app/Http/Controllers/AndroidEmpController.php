@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modelos\Persona;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AndroidEmpController extends Controller
 {

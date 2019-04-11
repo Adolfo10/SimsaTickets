@@ -5,6 +5,7 @@ use Illuminate\Http\Response;
 use App\Http\Respuesta;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AndroidController;
+use App\Http\Controllers\AndroidEmpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::post('/loginAnd', function (Request $r){
     return ["datos"=>$lg->IniciarSesion($r)];
 });
 
+
 Route::get('/comparacion',function (){
     $datos=[];
     $datos["passwordBD"]=\App\Modelos\Usuario::find(1003)->PassUsuario;
@@ -40,4 +42,14 @@ Route::get('/comparacion',function (){
     dd(\Illuminate\Support\Facades\Hash::check("123",\App\Modelos\Usuario::find(1003)->PassUsuario));
     return $datos;
 });
+
+
+
+Route::post('/mostrar',function (Request $r){
+    $mt = new AndroidEmpController();
+    return ["info"=>$mt->MostrarDatos($r)];
+
+});
+
+
 

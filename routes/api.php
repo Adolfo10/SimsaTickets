@@ -44,15 +44,15 @@ Route::get('/comparacion',function (){
 });
 
 
-Route::get('/history',function (){
-    $hist = new AndroidEmpController();
-    return ["hist"=>$hist->history()];
+Route::get('/history','AndroidEmpController@history');
+
+
+
+Route::get('/mostrar',function (){
+    $mt = new AndroidEmpController();
+    return ["info"=>$mt->MostrarDatos()];
+
 });
-
-
-
-
-Route::get('/mostrar','AndroidEmpController@history');
 
 Route::post('/actualizar', function (Request $r){
 

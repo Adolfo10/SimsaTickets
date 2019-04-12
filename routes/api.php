@@ -84,3 +84,12 @@ Route::get('/datostec',function (){
 });
 
 
+
+
+// Rutas del Root
+Route::post('/insper', function (Request $r)
+{
+    $ins = new AndroidRootController();
+    return ["InsPer"=>$ins->InsertarPersona($r)];
+
+});

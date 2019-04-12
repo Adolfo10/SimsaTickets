@@ -44,13 +44,16 @@ Route::get('/comparacion',function (){
 });
 
 
-Route::get('/history',function (){
-
-    $hst = new AndroidEmpController();
-    return ["h"=>$hst->history()];
+Route::get('/history','AndroidEmpController@history');
 
 
-});
+//    function (){
+//
+//        $hst = new AndroidEmpController();
+//        return ["h"=>$hst->history()];
+//
+//
+//    });
 
 
 

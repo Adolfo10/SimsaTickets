@@ -70,7 +70,7 @@ class AndroidEmpController extends Controller
 //        $h["hist"]= $historial;
 
 
-        return $Eqt;
+        return $Eqt->CodEmp;
 
 
 

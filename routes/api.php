@@ -75,3 +75,12 @@ Route::post('/mostrarHist',function (){
 
 
 
+
+// Rutas del Tecnico
+
+Route::get('/datostec',function (){
+    $tec = new \App\Http\Controllers\AndroidTecController();
+    return ["tec"=>$tec->datosTec()];
+});
+
+

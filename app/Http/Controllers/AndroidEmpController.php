@@ -21,8 +21,7 @@ class AndroidEmpController extends Controller
          $datosPer = [];
 
          $datosPer["person"] =  Persona::find(3);
-         $datosPer["EquipoTrabajo"] =  EquipoTrabajo::whereHas('persona')->with('persona')
-             ->where('CodEmp', '=', '1')->get();
+
 
          return ($datosPer);
      }

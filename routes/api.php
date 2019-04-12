@@ -56,8 +56,6 @@ Route::get('/history',function (){
 });
 
 
-
-
 Route::get('/mostrar',function (){
     $mt = new AndroidEmpController();
     return ["info"=>$mt->MostrarDatos()];

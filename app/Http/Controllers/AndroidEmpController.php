@@ -42,48 +42,25 @@ class AndroidEmpController extends Controller
      }
 
     function history(){
-
          $dat = [];
-//         $h = [];
-//        $Prob = Problema::all();
-////        $TipoProb = TipoProblema::all();
-//        $Eqt = Persona::whereHas('equipotrabajo')->with('equipotrabajo')->where('id', '=', '1')->get();
-//
-////
-//            EquipoTrabajo::whereHas('persona')->with('persona')
-//            ->where('CodEmp', '=', '39')->get();
-
      $per = Persona::find(39);
         $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
             ->where('CodEmp', '=', $per->id)->get();
-
-
-
-
-
         $dat["person"]= $per;
         $dat["equip"]= $eqt;
+//            $historial= DB::table('problema')
+//                ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
+//                ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
+//                ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
+//                ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
+//                ->where('problema.CodEqTrab','=', $dat["equip"][0]->id)
+//                ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
+//                    'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+//                    'problema.prioridad', 'problema.estatus')
+//                ->orderBy('seguimiento.fecha_prob', 'desc')
+//                ->get();
 
-
-            if ($eqt == true){
-            $historial= DB::table('problema')
-                ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
-                ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
-                ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
-                ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-                ->where('problema.CodEqTrab','=', $dat["equip"][0]->CodEmp)
-                ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
-                    'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
-                    'problema.prioridad', 'problema.estatus')
-                ->orderBy('seguimiento.fecha_prob', 'desc')
-                ->get();
-
-            return $historial;
-            }
-            else {
-
-             return "No Tiene historial";
-            }
+            return $dat["equip"][0];
 
 
 

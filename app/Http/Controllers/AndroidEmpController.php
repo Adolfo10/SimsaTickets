@@ -47,7 +47,7 @@ class AndroidEmpController extends Controller
 //         $h = [];
 //        $Prob = Problema::all();
 //        $TipoProb = TipoProblema::all();
-        $Eqt = Persona::whereHas('equipotrabajo')->with('equipotrabajo')->where('CodEmp','=','29')->get();
+        $Eqt = Persona::whereHas('equipotrabajo')->with('equipotrabajo')->get();
 
 //
 //            EquipoTrabajo::whereHas('persona')->with('persona')

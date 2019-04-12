@@ -50,7 +50,10 @@ Route::get('/comparacion',function (){
 
 
 
-Route::get('/history','AndroidEmpController@history');
+Route::get('/history',function (){
+     $his = new AndroidEmpController();
+     return ["his"=>$his->history()];
+});
 
 
 

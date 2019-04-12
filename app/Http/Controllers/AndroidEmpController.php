@@ -57,24 +57,27 @@ class AndroidEmpController extends Controller
         $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
             ->where('CodEmp', '=', $per->id)->get();
 
-//        $historial= DB::table('problema')
-//            ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
-//            ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
-//            ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
-//            ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-//            ->where('problema.CodEqTrab','=', $Eqt[0]->CodEmp)
-//            ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
-//                'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
-//                'problema.prioridad', 'problema.estatus')
-//            ->orderBy('seguimiento.fecha_prob', 'desc')
-//            ->get();
-//
 
         $dat["person"]= $per;
         $dat["equip"]= $eqt;
 
 
-        return $dat["equip"][0]->id;
+
+        $historial= DB::table('problema')
+            ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
+            ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
+            ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
+            ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
+            ->where('problema.CodEqTrab','=', $dat["equip"][0]->CodEmp)
+            ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
+                'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+                'problema.prioridad', 'problema.estatus')
+            ->orderBy('seguimiento.fecha_prob', 'desc')
+            ->get();
+
+
+
+        return $historial;
 
 
 

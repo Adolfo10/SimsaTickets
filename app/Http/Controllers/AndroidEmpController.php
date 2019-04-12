@@ -74,7 +74,7 @@ class AndroidEmpController extends Controller
         $dat["equip"]= $eqt;
 
 
-        return $dat["equip"];
+        return $dat["equip"][0]->id;
 
 
 

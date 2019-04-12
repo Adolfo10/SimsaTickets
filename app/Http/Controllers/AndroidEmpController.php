@@ -77,6 +77,8 @@ class AndroidEmpController extends Controller
                     'problema.prioridad', 'problema.estatus')
                 ->orderBy('seguimiento.fecha_prob', 'desc')
                 ->get();
+
+            return $historial;
             }
             else {
 

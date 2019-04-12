@@ -6,6 +6,9 @@ use App\Http\Respuesta;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AndroidController;
 use App\Http\Controllers\AndroidEmpController;
+use App\Http\Controllers\AndroidRootController;
+use App\Modelos\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +40,9 @@ Route::post('/loginAnd', function (Request $r){
 
 Route::get('/comparacion',function (){
     $datos=[];
-    $datos["passwordBD"]=\App\Modelos\Usuario::find(1003)->PassUsuario;
-    $datos["micontra"]=\Illuminate\Support\Facades\Hash::make("123");
-    dd(\Illuminate\Support\Facades\Hash::check("123",\App\Modelos\Usuario::find(1003)->PassUsuario));
+    $datos["passwordBD"]=Usuario::find(1003)->PassUsuario;
+    $datos["micontra"]=Hash::make("123");
+    dd(Hash::check("123",Usuario::find(1003)->PassUsuario));
     return $datos;
 });
 
@@ -52,10 +55,14 @@ Route::get('/mostrar',function (){
 });
 
 Route::post('/actualizar', function (Request $r){
-
     $ac = new AndroidEmpController();
     return ["Act"=>$ac->ActualizarDatos($r)];
 
+});
+
+Route::post('/mostrarHist',function (){
+    $his=new AndroidRootController();
+    return ["info"=>$his->mostrarHistorial()];
 });
 
 

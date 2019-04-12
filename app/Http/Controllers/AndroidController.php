@@ -28,11 +28,9 @@ class AndroidController extends Controller
 
         if ($usuario != null) {
             if (Hash::check($GetPas, $usuario->PassUsuario)) {
-
                 $persona = Persona::find($usuario->CodEmp);
                 $datos["user"] = $usuario;
                 $datos["persona"] = $persona;
-
             }
         }
 

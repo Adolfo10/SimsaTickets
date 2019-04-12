@@ -53,7 +53,7 @@ class AndroidEmpController extends Controller
 //            EquipoTrabajo::whereHas('persona')->with('persona')
 //            ->where('CodEmp', '=', '39')->get();
 
-     $per = Persona::find(1);
+     $per = Persona::find(39);
         $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
             ->where('CodEmp', '=', $per->id)->get();
 

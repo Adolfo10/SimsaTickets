@@ -37,6 +37,10 @@ Route::post('/loginAnd', function (Request $r){
     return ["datos"=>$lg->IniciarSesion($r)];
 });
 
+Route::get('/history','AndroidEmpController@history');
+
+
+
 
 Route::get('/comparacion',function (){
     $datos=[];

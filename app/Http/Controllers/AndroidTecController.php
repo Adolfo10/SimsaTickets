@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class AndroidTecController extends Controller
 {
-    function datosTec(){
+    function datosTec(Request $request){
 
 
 
-         $per = Persona::find(2);
+         $per = Persona::find($request->input("idTec"));
 
 
 

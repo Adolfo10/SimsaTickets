@@ -78,9 +78,9 @@ Route::post('/mostrarHist',function (){
 
 // Rutas del Tecnic
 
-Route::get('/datostec',function (){
+Route::post('/datostec',function (Request $r){
     $tec = new \App\Http\Controllers\AndroidTecController();
-    return ["tec"=>$tec->datosTec()];
+    return ["tec"=>$tec->datosTec($r)];
 });
 
 

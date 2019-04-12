@@ -43,17 +43,19 @@ class AndroidEmpController extends Controller
 
     function history(){
 
-//         $Eqt = [];
+         $dat = [];
 //         $h = [];
 //        $Prob = Problema::all();
-//        $TipoProb = TipoProblema::all();
-        $Eqt = Persona::whereHas('equipotrabajo')->with('equipotrabajo')->where('id', '=', '1')->get();
-
+////        $TipoProb = TipoProblema::all();
+//        $Eqt = Persona::whereHas('equipotrabajo')->with('equipotrabajo')->where('id', '=', '1')->get();
 //
+////
 //            EquipoTrabajo::whereHas('persona')->with('persona')
 //            ->where('CodEmp', '=', '39')->get();
 
-
+     $per = Persona::find(1);
+        $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
+            ->where('CodEmp', '=', $per->id)->get();
 
 //        $historial= DB::table('problema')
 //            ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
@@ -67,10 +69,12 @@ class AndroidEmpController extends Controller
 //            ->orderBy('seguimiento.fecha_prob', 'desc')
 //            ->get();
 //
-//        $h["hist"]= $historial;
+
+        $dat["person"]= $per;
+        $dat["equip"]= $eqt;
 
 
-        return $Eqt->CodEmp;
+        return $dat;
 
 
 

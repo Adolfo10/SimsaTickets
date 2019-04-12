@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Respuesta;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class AndroidRootController extends Controller
     {
         $datos = [];
 
+
         $datos ['InsPer']=Persona::create([
         'NomEmp' => $person->get('nom'),
         'ApPat' => $person->get('apeP'),
@@ -37,7 +39,7 @@ class AndroidRootController extends Controller
         'CodTipoPersona' => $person->get('tper'),
         'CodDepa' => $person->get('dep')
         ]);
-        return "";
+        return "Se registro";
 
 
     }

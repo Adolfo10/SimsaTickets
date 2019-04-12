@@ -65,7 +65,7 @@ class AndroidEmpController extends Controller
         $dat["equip"]= $eqt;
 
 
-            if (!$eqt){
+            if ($eqt == true){
             $historial= DB::table('problema')
                 ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
                 ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')

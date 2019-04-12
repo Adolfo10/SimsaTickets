@@ -43,7 +43,7 @@ class AndroidEmpController extends Controller
 
     function history(){
          $dat = [];
-     $per = Persona::find(39);
+     $per = Persona::find(1);
         $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
             ->where('CodEmp', '=', $per->id)->get();
         $dat["person"]= $per;

@@ -62,7 +62,7 @@ Route::post('/actualizar', function (Request $r){
 
 Route::post('/mostrarHist',function (){
     $his=new AndroidRootController();
-    return ["info"=>$his->mostrarHistorial()];
+    return [$his->mostrarHistorial()];
 });
 
 

@@ -70,7 +70,7 @@ Route::post('/actualizar', function (Request $r){
 
 Route::post('/mostrarHist',function (){
     $his=new AndroidRootController();
-    return [$his->mostrarHistorial()];
+    return ["info"=>$his->mostrarHistorial()];
 });
 
 

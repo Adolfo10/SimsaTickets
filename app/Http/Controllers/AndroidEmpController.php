@@ -21,8 +21,7 @@ class AndroidEmpController extends Controller
          $datosPer = [];
 
          $datosPer["person"] =  Persona::find(3);
-         $datosPer["EquipoTrabajo"] =  EquipoTrabajo::whereHas('persona')->with('persona')
-             ->where('CodEmp', '=', '1')->get();
+
 
          return ($datosPer);
      }
@@ -42,32 +41,30 @@ class AndroidEmpController extends Controller
      }
 
     function history(){
+         $dat = [];
+     $per = Persona::find(1);
+        $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
+            ->where('CodEmp', '=', $per->id)->get();
+        $dat["person"]= $per;
+        $dat["equip"]= $eqt;
+            $historial= DB::table('problema')
+                ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
+                ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
+                ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
+                ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
+                ->where('problema.CodEqTrab','=', $dat["equip"][0]->id)
+                ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
+                    'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+                    'problema.prioridad', 'problema.estatus')
+                ->orderBy('seguimiento.fecha_prob', 'desc')
+                ->get();
 
-//         $Eqt = [];
-//         $h = [];
-//        $Prob = Problema::all();
-//        $TipoProb = TipoProblema::all();
-        $Eqt = EquipoTrabajo::whereHas('persona')->with('persona')
-            ->where('CodEmp', '=', '39')->get();
-
-
-
-//        $historial= DB::table('problema')
-//            ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
-//            ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
-//            ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
-//            ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-//            ->where('problema.CodEqTrab','=', $Eqt[0]->CodEmp)
-//            ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
-//                'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
-//                'problema.prioridad', 'problema.estatus')
-//            ->orderBy('seguimiento.fecha_prob', 'desc')
-//            ->get();
-//
-//        $h["hist"]= $historial;
+            return $historial;
 
 
-        return $Eqt;
+
+
+
 
 
 

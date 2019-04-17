@@ -38,6 +38,8 @@ Route::post('/loginAnd', function (Request $r){
 });
 
 
+
+
 Route::get('/comparacion',function (){
     $datos=[];
     $datos["passwordBD"]=Usuario::find(1003)->PassUsuario;
@@ -46,6 +48,12 @@ Route::get('/comparacion',function (){
     return $datos;
 });
 
+
+
+Route::get('/history',function (){
+     $his = new AndroidEmpController();
+     return ["his"=>$his->history()];
+});
 
 
 Route::get('/mostrar',function (){
@@ -67,3 +75,21 @@ Route::post('/mostrarHist',function (){
 
 
 
+
+// Rutas del Tecnic
+
+Route::post('/datostec',function (Request $r){
+    $tec = new \App\Http\Controllers\AndroidTecController();
+    return ["tec"=>$tec->datosTec($r)];
+});
+
+
+
+
+// Rutas del Root
+Route::post('/insper', function (Request $r)
+{
+    $ins = new AndroidRootController();
+    return ["InsPer"=>$ins->InsertarPersona($r)];
+
+});

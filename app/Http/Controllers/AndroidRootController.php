@@ -24,8 +24,8 @@ class AndroidRootController extends Controller
             ->with('equipotrabajo')
             ->get();
 
-        $datos['tec']=Persona::whereHas('tecnico_problema')
-            ->with('tecnico_problema')
+        $datos['tec']=Persona::whereHas('problematec')
+            ->with('problematec')
             ->get();
 
         return($datos);

@@ -20,7 +20,7 @@ class AndroidRootController extends Controller
             ->get();
 
         $datos['tipo']=TipoProblema::all();
-        $datos['empleado']=EquipoTrabajo::whereHas('CodEmp')->with('CodEmp');
+        $datos['empleado']=EquipoTrabajo::whereHas('CodEmp' ,'=','4')->with('CodEmp');
         return($datos);
     }
 

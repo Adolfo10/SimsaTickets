@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Respuesta;
+use App\Modelos\EquipoTrabajo;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
 use App\Modelos\TipoProblema;
@@ -19,6 +20,7 @@ class AndroidRootController extends Controller
             ->get();
 
         $datos['tipo']=TipoProblema::all();
+        $datos['empleado']=EquipoTrabajo::whereHas('CodEmp')->with('CodEmp');
         return($datos);
     }
 

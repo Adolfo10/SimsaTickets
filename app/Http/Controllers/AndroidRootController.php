@@ -20,7 +20,12 @@ class AndroidRootController extends Controller
             ->get();
 
         $datos['tipo']=TipoProblema::all();
-        $datos['empleado']=EquipoTrabajo::whereHas('CodEmp' ,'==','4')->with('CodEmp');
+        $datos['empleado']=Problema::whereHas('persona')
+            ->with('persona')
+            ->whereHas('equipotrabajo')
+            ->whereHas('tipo_problema')
+            ->whereHas('tecnico')
+            ->get();;
         return($datos);
     }
 

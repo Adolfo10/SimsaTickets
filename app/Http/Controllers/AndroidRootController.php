@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Respuesta;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
+use App\Modelos\TipoProblema;
 use Illuminate\Http\Request;
 
 class AndroidRootController extends Controller
@@ -12,14 +13,12 @@ class AndroidRootController extends Controller
     function mostrarHistorial(){
         $datos=[];
         $datos['problemas']=Problema::whereHas('persona')
-            ->with('persona')
             ->whereHas('equipotrabajo')
-
             ->whereHas('tipo_problema')
-            ->with('tipo_problema')
             ->whereHas('tecnico')
-            ->with('tecnico')
             ->get();
+
+        $datos['tipo']=TipoProblema::all();
         return($datos);
     }
 

@@ -38,14 +38,14 @@ class AndroidRootController extends Controller
 
 
         $datos ['InsPer']=Persona::create([
-        'NomEmp' => $person->get('nom'),
-        'ApPat' => $person->get('apeP'),
-        'ApMat' => $person->get('apeM'),
-        'TelRed' => $person->get('telR'),
-        'CelEmp' => $person->get('telP'),
-        'EmailEmp' => $person->get('mail'),
-        'CodTipoPersona' => $person->get('tper'),
-        'CodDepa' => $person->get('dep')
+        'NomEmp' => $person->get('NomEmp'),
+        'ApPat' => $person->get('ApPat'),
+        'ApMat' => $person->get('ApMat'),
+        'TelRed' => $person->get('TelRed'),
+        'CelEmp' => $person->get('CelEmp'),
+        'EmailEmp' => $person->get('EmailEmp'),
+        'CodTipoPersona' => $person->get('CodTipoPersona'),
+        'CodDepa' => $person->get('CodDepa')
         ]);
         return "Se registro";
 

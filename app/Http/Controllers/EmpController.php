@@ -33,19 +33,17 @@ class EmpController extends Controller
     function Historial(){
 
 
-        $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
-            ->where('CodEmp', '=', Session::get('persona')->id)->get();
+        // $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
+        //     ->where('CodEmp', '=', Session::get('persona')->id)->get();
 
-        $historial= DB::table('problema')
-            ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
-            ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
-            ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
-            ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-           ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
-                    'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+        $historial= DB::table('personas')
+            ->join('tipopersona','personas.CodTipoPersona','=','tipopersona.id')
+            ->join('equipotrabajo','personas.id','=','equipotrabajo.CodEmp')
+            ->join('problema','equipotrabajo.id','=','problema.CodEqTrab')
+            ->join('tipoproblema','problema.CodTipoProblema','=','tipoproblema.id')
+           ->select('problema.id','equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                     'problema.prioridad', 'problema.estatus')
-                ->orderBy('seguimiento.fecha_prob', 'desc')
-            ->get();
+           ->where('personas.id','=',Session::get('persona')->id)->get();
 
         return view('emp.historial', compact('historial'));
     }

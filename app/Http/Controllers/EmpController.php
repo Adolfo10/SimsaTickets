@@ -33,8 +33,8 @@ class EmpController extends Controller
     function Historial(){
 
 
-        // $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
-        //     ->where('CodEmp', '=', Session::get('persona')->id)->get();
+        $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
+            ->where('CodEmp', '=', Session::get('persona')->id)->get();
 
         $historial= DB::table('problema')
             ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')

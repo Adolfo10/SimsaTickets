@@ -68,10 +68,7 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-Route::post('/mostrarHist',function (){
-    $his=new AndroidRootController();
-    return ["info"=>$his->mostrarHistorial()];
-});
+
 
 
 
@@ -92,4 +89,14 @@ Route::post('/insper', function (Request $r)
     $ins = new AndroidRootController();
     return ["InsPer"=>$ins->InsertarPersona($r)];
 
+});
+
+Route::post('/mostrarHist',function (){
+    $his=new AndroidRootController();
+    return ["info"=>$his->mostrarHistorial()];
+});
+
+Route::post('/mostrarEmp',function (){
+    $empleados=new AndroidRootController();
+    return [$empleados->recuperarEmpleados()];
 });

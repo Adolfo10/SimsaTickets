@@ -28,6 +28,7 @@ class AndroidRootController extends Controller
             ->with('problematec')
             ->get();
 
+
         return($datos);
     }
 
@@ -50,5 +51,11 @@ class AndroidRootController extends Controller
         return "Se registro";
 
 
+    }
+
+    public function recuperarEmpleados(){
+        $datos=[];
+        $datos['empleados']=Persona::all()->where('CodTipoPersona','=',3);
+        return($datos);
     }
 }

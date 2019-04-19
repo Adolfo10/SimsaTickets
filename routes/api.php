@@ -98,5 +98,5 @@ Route::post('/mostrarHist',function (){
 
 Route::post('/mostrarEmp',function (){
     $empleados=new AndroidRootController();
-    return [$empleados->recuperarEmpleados()];
+    return ["empleados"=>$empleados->recuperarEmpleados()];
 });

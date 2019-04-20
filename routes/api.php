@@ -50,10 +50,7 @@ Route::get('/comparacion',function (){
 
 
 
-Route::get('/history',function (){
-     $his = new AndroidEmpController();
-     return ["his"=>$his->history()];
-});
+
 
 
 Route::get('/mostrar',function (){
@@ -68,9 +65,11 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-Route::post('/mostrarHist',function (){
-    $his=new AndroidRootController();
-    return ["info"=>$his->mostrarHistorial()];
+// Rutas del empleado
+
+Route::post('/history',function (Request $r){
+    $his = new AndroidEmpController();
+    return $his->history($r);
 });
 
 
@@ -92,4 +91,14 @@ Route::post('/insper', function (Request $r)
     $ins = new AndroidRootController();
     return ["InsPer"=>$ins->InsertarPersona($r)];
 
+});
+
+Route::post('/mostrarHist',function (){
+    $his=new AndroidRootController();
+    return ["info"=>$his->mostrarHistorial()];
+});
+
+Route::post('/mostrarEmp',function (){
+    $empleados=new AndroidRootController();
+    return ["empleados"=>$empleados->recuperarEmpleados()];
 });

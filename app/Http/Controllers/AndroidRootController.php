@@ -55,7 +55,7 @@ class AndroidRootController extends Controller
 
     public function recuperarEmpleados(){
 
-        $datos=Persona::where('CodTipoPersona','=',3)->get();
+        $datos=Persona::all();
         return($datos);
     }
 }

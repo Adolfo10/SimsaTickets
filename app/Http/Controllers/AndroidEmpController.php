@@ -44,37 +44,17 @@ class AndroidEmpController extends Controller
 
     function history(Request $r)
     {
-
         $datos = [];
-        $datos["historial"]= DB::table('personas')
-            ->join('tipopersona','personas.CodTipoPersona','=','tipopersona.id')
-            ->join('equipotrabajo','personas.id','=','equipotrabajo.CodEmp')
-            ->join('problema','equipotrabajo.id','=','problema.CodEqTrab')
-            ->join('tipoproblema','problema.CodTipoProblema','=','tipoproblema.id')
-            ->select('problema.id','equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+        $datos["historial"] = DB::table('personas')
+            ->join('tipopersona', 'personas.CodTipoPersona', '=', 'tipopersona.id')
+            ->join('equipotrabajo', 'personas.id', '=', 'equipotrabajo.CodEmp')
+            ->join('problema', 'equipotrabajo.id', '=', 'problema.CodEqTrab')
+            ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
+            ->select('problema.id', 'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                 'problema.prioridad', 'problema.estatus')
-            ->where('personas.id','=',$r->input("id"))->get();
-        /*$dat = [];
-    $per = Persona::find(1);
-       $eqt = EquipoTrabajo::whereHas('persona')->with('persona')
-           ->where('CodEmp', '=', $per->id)->get();
-       $dat["person"]= $per;
-       $dat["equip"]= $eqt;
-           $historial= DB::table('problema')
-               ->join('seguimiento', 'problema.id', '=', 'seguimiento.problema')
-               ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
-               ->join('equipotrabajo', 'problema.CodEqTrab', '=', 'equipotrabajo.id')
-               ->join('personas', 'equipotrabajo.CodEmp', '=', 'personas.id')
-               ->where('problema.CodEqTrab','=', $dat["equip"][0]->id)
-               ->select('seguimiento.fecha_prob', 'seguimiento.hora_prob', 'problema.id',
-                   'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
-                   'problema.prioridad', 'problema.estatus')
-               ->orderBy('seguimiento.fecha_prob', 'desc')
-               ->get();*/
+            ->where('personas.id', '=', $r->input("id"))->get();
 
         return $datos;
-
-
     }
 
 

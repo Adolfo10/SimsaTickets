@@ -46,7 +46,7 @@ class AndroidEmpController extends Controller
     {
 
         $datos = [];
-        $datos["historial"]= DB::table('personas')
+        $datos[]= DB::table('personas')
             ->join('tipopersona','personas.CodTipoPersona','=','tipopersona.id')
             ->join('equipotrabajo','personas.id','=','equipotrabajo.CodEmp')
             ->join('problema','equipotrabajo.id','=','problema.CodEqTrab')

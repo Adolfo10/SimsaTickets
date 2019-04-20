@@ -44,8 +44,8 @@ class AndroidEmpController extends Controller
 
     function history(Request $r)
     {
-        $datos = [];
-        $datos["historial"] = DB::table('personas')
+//        $datos = [];
+        $datos= DB::table('personas')
             ->join('tipopersona', 'personas.CodTipoPersona', '=', 'tipopersona.id')
             ->join('equipotrabajo', 'personas.id', '=', 'equipotrabajo.CodEmp')
             ->join('problema', 'equipotrabajo.id', '=', 'problema.CodEqTrab')

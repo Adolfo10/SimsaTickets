@@ -69,7 +69,7 @@ Route::post('/actualizar', function (Request $r){
 
 Route::post('/history',function (Request $r){
     $his = new AndroidEmpController();
-    return $his->history($r->get('id',23));
+    return $his->history($r->json('id'));
 });
 
 

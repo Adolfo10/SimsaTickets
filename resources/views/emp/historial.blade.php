@@ -21,6 +21,7 @@
         <tr>
             
             <th scope="col">#</th>
+            <th scope="col">Nota de Problema</th>
             <th scope="col">Equipo</th>
             <th scope="col">Tipo de problema</th>
             <th scope="col">Prioridad</th>
@@ -34,6 +35,7 @@
             <tr>
                 
                 <td>{{$h->id}}</td>
+                <td>{{$h->NotaProblema}}</td>
                 <td>{{$h->Descripcion}}</td>
                 <td>{{$h->NombreProblema}}</td>
                 <td>{{$h->prioridad}}</td>

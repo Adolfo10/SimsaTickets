@@ -41,7 +41,7 @@ class EmpController extends Controller
             ->join('equipotrabajo','personas.id','=','equipotrabajo.CodEmp')
             ->join('problema','equipotrabajo.id','=','problema.CodEqTrab')
             ->join('tipoproblema','problema.CodTipoProblema','=','tipoproblema.id')
-           ->select('problema.id','equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+           ->select('problema.id','problema.NotaProblema','equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                     'problema.prioridad', 'problema.estatus')
            ->where('personas.id','=',Session::get('persona')->id)->get();
 

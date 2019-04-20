@@ -50,10 +50,7 @@ Route::get('/comparacion',function (){
 
 
 
-Route::get('/history',function (){
-     $his = new AndroidEmpController();
-     return ["his"=>$his->history()];
-});
+
 
 
 Route::get('/mostrar',function (){
@@ -68,7 +65,12 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
+// Rutas del empleado
 
+Route::get('/history',function (Request $r){
+    $his = new AndroidEmpController();
+    return ["historial"=>$his->history($r)];
+});
 
 
 

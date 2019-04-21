@@ -56,7 +56,8 @@ class AndroidRootController extends Controller
 
     }
 
-    public function recuperarEmpleados(){
+    public function recuperarEmpleados()
+    {
 
         $datos=Persona::all();
         return($datos);
@@ -69,7 +70,8 @@ class AndroidRootController extends Controller
         $datos ['InsUss']=Usuario::create
         ([
             'NomUsuario' => $request->get('NomUsuario'),
-            'PassUsuario' => $request->get('PassUsuario'),
+            'PassUsuario' => Hash::make($request->get('PassUsuario')),
+            //'PassUsuario' => $request->get('PassUsuario'),
             'CodEmp' => $request->get('CodEmp'),
             'api_token' => Str::random(60)
         ]);

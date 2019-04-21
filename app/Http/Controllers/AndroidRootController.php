@@ -7,6 +7,7 @@ use App\Modelos\EquipoTrabajo;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
 use App\Modelos\TipoProblema;
+use App\Modelos\Usuario;
 use Illuminate\Http\Request;
 
 class AndroidRootController extends Controller
@@ -57,5 +58,20 @@ class AndroidRootController extends Controller
 
         $datos=Persona::all();
         return($datos);
+    }
+
+    public function InsertarUsuario(Request $request)
+    {
+        $datos = [];
+        //$user_nom = ucwords($request->get('NomUsuario'));
+        $datos ['InsUss']=Usuario::create
+        ([
+            'NomUsuario' => $request->get('NomUsuario'),
+            'PassUsuario' => $request->get('PassUsuario'),
+            'CodEmp' => $request->get('CodEmp'),
+            'api_token' => Str::random(60)
+        ]);
+
+        return "Se registró";
     }
 }

@@ -108,3 +108,9 @@ Route::post('/mostrarEmp',function (){
     $empleados=new AndroidRootController();
     return ["empleados"=>$empleados->recuperarEmpleados()];
 });
+
+Route::post('/insuss', function (Request $r)
+{
+    $ins = new AndroidRootController();
+    return ["InsUss"=>$ins->InsertarUsuario($r)];
+});

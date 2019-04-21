@@ -9,6 +9,8 @@ use App\Modelos\Problema;
 use App\Modelos\TipoProblema;
 use App\Modelos\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AndroidRootController extends Controller
 {

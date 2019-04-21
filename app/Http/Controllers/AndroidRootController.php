@@ -74,6 +74,6 @@ class AndroidRootController extends Controller
             'api_token' => Str::random(60)
         ]);
 
-        return "Se registró";
+        return "Se registro";
     }
 }

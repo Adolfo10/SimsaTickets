@@ -54,7 +54,8 @@ class AndroidEmpController extends Controller
                 'problema.prioridad', 'problema.estatus')
             ->where('personas.id', '=', $r->input("id"))->get();
 
-        return $datos;
+        return $datos==null?$datos:"nachos";
+//        return $datos;
     }
 
 

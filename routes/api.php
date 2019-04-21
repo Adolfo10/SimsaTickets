@@ -84,6 +84,11 @@ Route::post('/datostec',function (Request $r){
     return ["tec"=>$tec->datosTec($r)];
 });
 
+Route::post('/editTec',function()
+{
+    $tecnico=new AndroidTecController();
+    return "se registro";
+});
 
 
 

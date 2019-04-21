@@ -25,7 +25,8 @@ class AndroidTecController extends Controller
         $tecnico->CelEmp=$request->input('CelEmp');
         $tecnico->EmailEmp=$request->input('EmailEmp');
         $tecnico->save();
+        $dato["Persona"] = $tecnico;
 
-        return ;
+        return $dato;
     }
 }

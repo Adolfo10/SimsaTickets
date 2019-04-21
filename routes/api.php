@@ -71,9 +71,8 @@ Route::post('/history',function (Request $r){
     $his = new AndroidEmpController();
 
 //    return $his->history($r);
-    return $r;
+    return $r->all();
 });
-
 
 
 

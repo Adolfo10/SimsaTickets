@@ -78,4 +78,10 @@ class AndroidRootController extends Controller
 
         return "Se registro";
     }
+
+    public function allPers()
+    {
+        $datos=Persona::all();
+        return($datos);
+    }
 }

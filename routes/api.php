@@ -114,3 +114,9 @@ Route::post('/insuss', function (Request $r)
     $ins = new AndroidRootController();
     return ["InsUss"=>$ins->InsertarUsuario($r)];
 });
+
+Route::get('/allper',function ()
+{
+    $empleados=new AndroidRootController();
+    return ["Personas"=>$empleados->allPers()];
+});

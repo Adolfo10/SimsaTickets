@@ -13,7 +13,7 @@ class AndroidTecController extends Controller
         return $per;
     }
 
-    function editTec(Request $request)
+    function edittec(Request $request)
     {
 
         $dato=[];

@@ -83,10 +83,10 @@ Route::post('/datostec',function (Request $r){
     return ["tec"=>$tec->datosTec($r)];
 });
 
-Route::post('/editTec',function(Request $r)
+Route::post('/edittec',function(Request $r)
 {
-    $tecnico=new AndroidTecController();
-    return ["editTec"=>$tecnico->editTec($r)];
+    $tecnico= new \App\Http\Controllers\AndroidTecController();
+    return ["edittec"=>$tecnico->edittec($r)];
 });
 
 

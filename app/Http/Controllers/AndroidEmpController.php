@@ -58,6 +58,12 @@ class AndroidEmpController extends Controller
 //        return $datos;
     }
 
+     function EquiposEmpleado(){
+
+         $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
+             ->where('CodEmp', '=', '2')->get();
+         return  $Equipos;
+     }
 
     function regProblema(Request $r)
     {

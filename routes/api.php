@@ -51,7 +51,7 @@ Route::get('/comparacion',function (){
 
 
 
-
+// Rutas del empleado
 
 Route::get('/mostrar',function (){
     $mt = new AndroidEmpController();
@@ -65,13 +65,16 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-// Rutas del empleado
-
 Route::post('/history',function (Request $r){
     $his = new AndroidEmpController();
 
     return $his->history($r->all());
 //    return $r;
+});
+
+Route::post('/EquipoEmp', function (){
+    $eque = new AndroidEmpController();
+    return ["Equip"=>$eque->EquiposEmpleado()];
 });
 
 

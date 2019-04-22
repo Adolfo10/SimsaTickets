@@ -81,7 +81,11 @@ class AndroidRootController extends Controller
 
     public function allPers()
     {
-        $datos=Persona::all();
-        return($datos);
+        $datosPer = [];
+
+        $datosPer["Persona"] = Persona::all();
+        return ($datosPer);
+        //$datos=Persona::all();
+        //return($datos);
     }
 }

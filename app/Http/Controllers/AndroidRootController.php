@@ -85,7 +85,7 @@ class AndroidRootController extends Controller
         $a["Persona"] = Persona::first();//first
         return ($a);*/
         $datosPer = [];
-        $datosPer["Persona"] = Persona::first();
+        $datosPer["Persona"] = Persona::all();
         return ($datosPer);
         //return ["Persona"=>Persona::all()];
         //$datos=Persona::all();

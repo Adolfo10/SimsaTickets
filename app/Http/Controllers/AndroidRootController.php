@@ -6,6 +6,7 @@ use App\Http\Respuesta;
 use App\Modelos\EquipoTrabajo;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
+use MongoDB\BSON\Object;
 use App\Modelos\TipoProblema;
 use App\Modelos\Usuario;
 use Illuminate\Http\Request;
@@ -81,12 +82,12 @@ class AndroidRootController extends Controller
 
     public function allPers()
     {
-        $a = new Object();
-        $a["Persona"] = Persona::all();
-        return ($a);
-        /*$datosPer = [];
-        $datosPer["Persona"] = Persona::all();
-        return ($datosPer);*/
+        /*$a = new Object();
+        $a["Persona"] = Persona::first();//first
+        return ($a);*/
+        $datosPer = [];
+        $datosPer["Persona"] = Persona::first();
+        return ($datosPer);
         //return ["Persona"=>Persona::all()];
         //$datos=Persona::all();
         //return($datos);

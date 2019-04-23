@@ -58,8 +58,8 @@ class AndroidEmpController extends Controller
 //        return $datos;
     }
 
-     function EquiposEmpleado(){
-
+     function EquiposEmpleado()
+     {
          $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
              ->where('CodEmp', '=', '13')->get();
          return  $Equipos;

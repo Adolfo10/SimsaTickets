@@ -6,7 +6,6 @@ use App\Http\Respuesta;
 use App\Modelos\EquipoTrabajo;
 use App\Modelos\Persona;
 use App\Modelos\Problema;
-use MongoDB\BSON\Object;
 use App\Modelos\TipoProblema;
 use App\Modelos\Usuario;
 use Illuminate\Http\Request;

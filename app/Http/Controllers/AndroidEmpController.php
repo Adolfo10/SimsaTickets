@@ -64,6 +64,16 @@ class AndroidEmpController extends Controller
              ->where('CodEmp', '=', '13')->get();
          return  $Equipos;
      }
+     function RegistrarProblema(Request $r) {
+
+         $Prob = new Problema;
+         $Prob->CodEqTrab  = $r->input("CodEqTrab");
+         $Prob->CodTipoProblema = $r->input("CodTipoProblema");
+         $Prob->NotaProblema = $r->input("NotaProblema");
+         $Prob->prioridad = $r->input("prioridad");
+         $Prob->save();
+         return ["Mensaje","Registrado"];
+     }
 
     function regProblema(Request $r)
     {

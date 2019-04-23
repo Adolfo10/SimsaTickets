@@ -77,6 +77,11 @@ Route::post('/EquipoEmp', function (){
     return ["Equip"=>$eque->EquiposEmpleado()];
 });
 
+Route::post('/regprob', function (Request $request){
+    $eque = new AndroidEmpController();
+    return ["prob"=>$eque->RegistrarProblema($request)];
+});
+
 
 
 // Rutas del Tecnic

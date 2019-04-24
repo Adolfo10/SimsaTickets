@@ -56,7 +56,7 @@ class AndroidEmpController extends Controller
             ->select('problema.id', 'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                 'problema.prioridad', 'problema.estatus')
             ->where('personas.id', '=', )->get();*/
-        return $colleccion->keyBy("id");
+        return $colleccion->keys("id");
     }
     function history()
     {

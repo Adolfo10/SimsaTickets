@@ -29,4 +29,19 @@ class AndroidTecController extends Controller
 
         return $dato;
     }
+
+
+    function histec(Request $request)
+    {
+        $persona = DB::table('personas')
+                ->join('tecnico_problema','tecnico_problema.CodEmp','=','personas.id')
+                ->join('problema','problema.id','=','tecnico_problema.CodProblema')
+                ->join('equipotrabajo','equipotrabajo.id','=','problema.CodEqTrab')
+                ->join('tipoproblema','tipoproblema.id','=','problema.CodTipoProblema')
+                ->where('problema.estatus','PENDIENTE')
+                ->where('personas.id',21)
+                ->get();
+        
+        return $persona;
+    }
 }

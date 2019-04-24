@@ -104,6 +104,12 @@ Route::post('/edittec',function(Request $r)
     return ["edittec"=>$tecnico->edittec($r)];
 });
 
+Route::post('/histec',function(Request $r)
+{
+    $his= new \App\Http\Controllers\AndroidTecController();
+    return ["histec"=>$his->histec($r)];
+});
+
 
 
 // Rutas del Root

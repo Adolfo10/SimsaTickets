@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modelos\Persona;
 use Illuminate\Http\Request;
+use DB;
 
 class AndroidTecController extends Controller
 {
@@ -28,5 +29,20 @@ class AndroidTecController extends Controller
         $dato["Persona"] = $tecnico;
 
         return $dato;
+    }
+
+
+    function histec(Request $request)
+    {
+        $persona = DB::table('personas')
+                ->join('tecnico_problema','tecnico_problema.CodEmp','=','personas.id')
+                ->join('problema','problema.id','=','tecnico_problema.CodProblema')
+                ->join('equipotrabajo','equipotrabajo.id','=','problema.CodEqTrab')
+                ->join('tipoproblema','tipoproblema.id','=','problema.CodTipoProblema')
+                ->where('problema.estatus','PENDIENTE')
+                ->where('personas.id',4)
+                ->get();
+        
+        return $persona;
     }
 }

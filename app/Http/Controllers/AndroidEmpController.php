@@ -45,9 +45,9 @@ class AndroidEmpController extends Controller
 
     function setID(Request $r)
     {
-        $this->id=$r->input("id");
+        $colleccion=collect($r->input("id"));
 //        return $this->history($r);
-        return $this->id;
+        return $colleccion;
     }
     function history()
     {

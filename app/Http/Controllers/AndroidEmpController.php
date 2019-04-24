@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 
 class AndroidEmpController extends Controller
 {
+    public $id;
 
     // Fecha, Tipo de problema, status, no. de problema
 
@@ -44,10 +45,11 @@ class AndroidEmpController extends Controller
 
     function setID(Request $r)
     {
-//        $id=$r->input("id");
-        return $this->history($r);
+        $this->id=$r->input("id");
+//        return $this->history($r);
+        return $this->id;
     }
-    function history($r)
+    function history()
     {
 //        $datos = [];
         $datos= DB::table('personas')
@@ -57,7 +59,7 @@ class AndroidEmpController extends Controller
             ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
             ->select('problema.id', 'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
                 'problema.prioridad', 'problema.estatus')
-            ->where('personas.id', '=', $r->input("id"))->get();
+            ->where('personas.id', '=', /*$r->input("id")*/$this->id)->get();
 
 //        return $datos==null?$datos:"nachos";
 //        return $datos;

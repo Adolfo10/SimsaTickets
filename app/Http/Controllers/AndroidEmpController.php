@@ -54,10 +54,27 @@ class AndroidEmpController extends Controller
                 'problema.prioridad', 'problema.estatus')
             ->where('personas.id', '=', $r->input("id"))->get();
 
-        return $datos==null?$datos:"nachos";
+//        return $datos==null?$datos:"nachos";
 //        return $datos;
+        return $problemas =($datos!=null)?$problemas=$datos:$problemas="nachos";
     }
 
+     function EquiposEmpleado()
+     {
+         $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
+             ->where('CodEmp', '=', '13')->get();
+         return  $Equipos;
+     }
+     function RegistrarProblema(Request $r) {
+
+         $Prob = new Problema;
+         $Prob->CodEqTrab  = $r->input("CodEqTrab");
+         $Prob->CodTipoProblema = $r->input("CodTipoProblema");
+         $Prob->NotaProblema = $r->input("NotaProblema");
+         $Prob->prioridad = $r->input("prioridad");
+         $Prob->save();
+         return ["Mensaje","Registrado"];
+     }
 
     function regProblema(Request $r)
     {

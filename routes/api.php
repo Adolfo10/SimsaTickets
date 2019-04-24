@@ -51,7 +51,7 @@ Route::get('/comparacion',function (){
 
 
 
-
+// Rutas del empleado
 
 Route::get('/mostrar',function (){
     $mt = new AndroidEmpController();
@@ -65,13 +65,21 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-// Rutas del empleado
-
 Route::post('/history',function (Request $r){
     $his = new AndroidEmpController();
 
-    return $his->history($r->all());
+    return $his->history($r);
 //    return $r;
+});
+
+Route::post('/EquipoEmp', function (){
+    $eque = new AndroidEmpController();
+    return ["Equip"=>$eque->EquiposEmpleado()];
+});
+
+Route::post('/regprob', function (Request $request){
+    $eque = new AndroidEmpController();
+    return ["prob"=>$eque->RegistrarProblema($request)];
 });
 
 
@@ -124,5 +132,5 @@ Route::post('/insuss', function (Request $r)
 Route::get('/allper',function ()
 {
     $empleados=new AndroidRootController();
-    return ["Personas"=>$empleados->allPers()];
+    return ["info"=>$empleados->allPers()];
 });

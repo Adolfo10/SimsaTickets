@@ -9,6 +9,7 @@ use App\Modelos\TipoProblema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Collection;
 
 class AndroidEmpController extends Controller
 {
@@ -45,7 +46,7 @@ class AndroidEmpController extends Controller
 
     function setID(Request $r)
     {
-        $colleccion=collect($r);
+        $colleccion=Collection::make($r);
 //        return $this->history($r);
 
         return $colleccion;

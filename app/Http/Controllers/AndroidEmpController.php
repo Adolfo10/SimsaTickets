@@ -55,7 +55,8 @@ class AndroidEmpController extends Controller
             ->where('personas.id', '=', $r->input("id"))->get();
 
 //        return $datos==null?$datos:"nachos";
-        return $datos;
+//        return $datos;
+        return $datos==null?$datos=$datos:$datos="nachos";
     }
 
      function EquiposEmpleado()

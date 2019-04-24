@@ -42,6 +42,11 @@ class AndroidEmpController extends Controller
         return $data;
     }
 
+    function setID(Request $r)
+    {
+//        $id=$r->input("id");
+        $this->history($r);
+    }
     function history(Request $r)
     {
 //        $datos = [];
@@ -58,6 +63,9 @@ class AndroidEmpController extends Controller
 //        return $datos;
         return $problemas =($datos!=null)?$problemas=$datos:$problemas="nachos";
     }
+
+
+
 
      function EquiposEmpleado()
      {

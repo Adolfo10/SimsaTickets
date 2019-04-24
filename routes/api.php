@@ -65,12 +65,19 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-Route::post('/history',function (Request $r){
-    $his = new AndroidEmpController();
+Route::post('/history1',function (Request $r){
+    $id = new AndroidEmpController();
 
-    return $his->history($r);
+    $id->setID($r);
+    return $r;
+});
+Route::post('/history2',function (){
+    $his = new AndroidEmpController();
+    return $his->history();
 //    return $r;
 });
+
+
 
 Route::post('/EquipoEmp', function (){
     $eque = new AndroidEmpController();

@@ -48,8 +48,15 @@ class AndroidEmpController extends Controller
     {
         $colleccion=Collection::make($r);
 //        return $this->history($r);
-
-        return $colleccion;
+        /*$datos= DB::table('personas')
+            ->join('tipopersona', 'personas.CodTipoPersona', '=', 'tipopersona.id')
+            ->join('equipotrabajo', 'personas.id', '=', 'equipotrabajo.CodEmp')
+            ->join('problema', 'equipotrabajo.id', '=', 'problema.CodEqTrab')
+            ->join('tipoproblema', 'problema.CodTipoProblema', '=', 'tipoproblema.id')
+            ->select('problema.id', 'equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+                'problema.prioridad', 'problema.estatus')
+            ->where('personas.id', '=', )->get();*/
+        return $colleccion->keyBy("id");
     }
     function history()
     {

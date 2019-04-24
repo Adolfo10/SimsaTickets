@@ -56,7 +56,7 @@ class AndroidEmpController extends Controller
 
 //        return $datos==null?$datos:"nachos";
 //        return $datos;
-        return $datos==null?$datos=$datos:$datos="nachos";
+        return ($datos!=null)?$datos=$datos:$datos="nachos";
     }
 
      function EquiposEmpleado()

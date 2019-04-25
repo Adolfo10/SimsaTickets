@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Modelos\Persona;
 use Illuminate\Http\Request;
 use DB;
+use Colllection;
 
 class AndroidTecController extends Controller
 {

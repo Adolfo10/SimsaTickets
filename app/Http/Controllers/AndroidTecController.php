@@ -34,13 +34,17 @@ class AndroidTecController extends Controller
 
     function histec(Request $request)
     {
+
+        $coleccion = Collection::make($request);
+
         $persona = DB::table('personas')
                 ->join('tecnico_problema','tecnico_problema.CodEmp','=','personas.id')
                 ->join('problema','problema.id','=','tecnico_problema.CodProblema')
                 ->join('equipotrabajo','equipotrabajo.id','=','problema.CodEqTrab')
                 ->join('tipoproblema','tipoproblema.id','=','problema.CodTipoProblema')
                 ->where('problema.estatus','PENDIENTE')
-                ->where('personas.id',$request->input('id'))
+                ->where('personas.id',$colecion->first())
+                ->select('problema.id','personas.NomEmp','tipoproblema.NombreProblema')
                 ->get();
         
         return $persona;

@@ -17,13 +17,13 @@ class AndroidEmpController extends Controller
 
     // Fecha, Tipo de problema, status, no. de problema
 
-    function MostrarDatos()
+    function MostrarDatos(Request $r)
     {
 
 //         $id = $request->input("id");
         $datosPer = [];
 
-        $datosPer["person"] = Persona::find(3);
+        $datosPer["person"] = Persona::find($r->input("id"));
 
 
         return ($datosPer);

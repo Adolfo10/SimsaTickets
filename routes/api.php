@@ -53,9 +53,9 @@ Route::get('/comparacion',function (){
 
 // Rutas del empleado
 
-Route::get('/mostrar',function (){
+Route::post('/mostrar',function (Request $r){
     $mt = new AndroidEmpController();
-    return ["info"=>$mt->MostrarDatos()];
+    return ["info"=>$mt->MostrarDatos($r)];
 
 });
 

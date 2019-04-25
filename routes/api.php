@@ -90,7 +90,7 @@ Route::post('/regprob', function (Request $request){
 
 
 
-// Rutas del Tecnic
+// Rutas del Tecnico
 
 Route::post('/datostec',function (Request $r){
     $tec = new \App\Http\Controllers\AndroidTecController();

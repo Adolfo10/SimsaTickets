@@ -19,13 +19,7 @@ class AndroidEmpController extends Controller
 
     function MostrarDatos(Request $r)
     {
-
-//         $id = $request->input("id");
-        $datosPer = [];
-
-        $datosPer["person"] = Persona::find($r->input("id"));
-
-
+        $datosPer= Persona::find($r->input("id"));
         return ($datosPer);
     }
 

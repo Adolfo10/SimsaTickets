@@ -55,7 +55,7 @@ Route::get('/comparacion',function (){
 
 Route::post('/mostrar',function (Request $r){
     $mt = new AndroidEmpController();
-    return ["info"=>$mt->MostrarDatos($r)];
+    return [$mt->MostrarDatos($r)];
 
 });
 

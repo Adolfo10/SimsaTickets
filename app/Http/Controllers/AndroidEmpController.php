@@ -71,7 +71,7 @@ class AndroidEmpController extends Controller
          $Prob->NotaProblema = $r->input("NotaProblema");
          $Prob->prioridad = $r->input("prioridad");
          $Prob->save();
-         return ["Mensaje","Registrado"];
+         return ["Mensaje"=>"Registrado"];
      }
 
     function regProblema(Request $r)

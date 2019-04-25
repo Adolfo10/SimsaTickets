@@ -65,15 +65,10 @@ Route::post('/actualizar', function (Request $r){
 
 });
 
-Route::post('/history1',function (Request $r){
+Route::post('/history',function (Request $r){
     $id = new AndroidEmpController();
 
-    return $id->setID($r);
-});
-Route::post('/history2',function (){
-    $his = new AndroidEmpController();
-    return $his->history();
-//    return $r;
+    return $id->history($r);
 });
 
 

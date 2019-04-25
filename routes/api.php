@@ -75,8 +75,8 @@ Route::post('/history',function (Request $r){
 
 Route::post('/EquipoEmp', function (Request $r){
     $eque = new AndroidEmpController();
-//    return ["Equip"=>$eque->EquiposEmpleado($r->input("id"))];
-    return $r->input("id");
+    return ["Equip"=>$eque->EquiposEmpleado($r)];
+//    return $r->input("id");
 });
 
 Route::post('/regprob', function (Request $request){

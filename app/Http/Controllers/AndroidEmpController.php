@@ -57,10 +57,10 @@ class AndroidEmpController extends Controller
 
 
 
-     function EquiposEmpleado()
+     function EquiposEmpleado(Request $r)
      {
          $Equipos = EquipoTrabajo::whereHas('persona')->with('persona')
-             ->where('CodEmp', '=', '13')->get();
+             ->where('CodEmp', '=', $r->input("id"))->get();
          return  $Equipos;
      }
      function RegistrarProblema(Request $r) {

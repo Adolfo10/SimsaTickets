@@ -26,7 +26,7 @@ class AndroidEmpController extends Controller
     function ActualizarDatos(Request $request)
     {
         $data = [];
-        $emp = Persona::find(3);
+        $emp = Persona::find($request->input('id'));
         $emp->NomEmp = $request->input('NomEmp');
         $emp->ApPat = $request->input('ApPat');
         $emp->ApMat = $request->input('ApMat');

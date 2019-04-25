@@ -48,6 +48,6 @@ class AndroidTecController extends Controller
         //         ->select('problema.id','personas.NomEmp','tipoproblema.NombreProblema')
         //         ->get();
         
-        return $coleccion->first();
+        return $coleccion->first("histec");
     }
 }

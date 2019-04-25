@@ -101,7 +101,7 @@ Route::post('/edittec',function(Request $r)
 Route::post('/histec',function(Request $r)
 {
     $his= new \App\Http\Controllers\AndroidTecController();
-    return [$his->histec($r)];
+    return $his->histec($r);
 });
 
 

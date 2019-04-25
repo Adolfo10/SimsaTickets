@@ -38,16 +38,16 @@ class AndroidTecController extends Controller
 
         $coleccion = Collection::make($request);
 
-        // $persona = DB::table('personas')
-        //         ->join('tecnico_problema','tecnico_problema.CodEmp','=','personas.id')
-        //         ->join('problema','problema.id','=','tecnico_problema.CodProblema')
-        //         ->join('equipotrabajo','equipotrabajo.id','=','problema.CodEqTrab')
-        //         ->join('tipoproblema','tipoproblema.id','=','problema.CodTipoProblema')
-        //         ->where('problema.estatus','PENDIENTE')
-        //         ->where('personas.id',$coleccion->first())
-        //         ->select('problema.id','personas.NomEmp','tipoproblema.NombreProblema')
-        //         ->get();
+        $persona = DB::table('personas')
+                ->join('tecnico_problema','tecnico_problema.CodEmp','=','personas.id')
+                ->join('problema','problema.id','=','tecnico_problema.CodProblema')
+                ->join('equipotrabajo','equipotrabajo.id','=','problema.CodEqTrab')
+                ->join('tipoproblema','tipoproblema.id','=','problema.CodTipoProblema')
+                ->where('problema.estatus','PENDIENTE')
+                ->where('personas.id',$coleccion->first())
+                ->select('problema.id','personas.NomEmp','tipoproblema.NombreProblema')
+                ->get();
         
-        return $coleccion->first()->get();
+        return $persona;
     }
 }

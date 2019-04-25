@@ -44,7 +44,7 @@ class AndroidTecController extends Controller
                 ->join('equipotrabajo','equipotrabajo.id','=','problema.CodEqTrab')
                 ->join('tipoproblema','tipoproblema.id','=','problema.CodTipoProblema')
                 ->where('problema.estatus','PENDIENTE')
-                ->where('personas.id',$colecion->first())
+                ->where('personas.id',$coleccion->first())
                 ->select('problema.id','personas.NomEmp','tipoproblema.NombreProblema')
                 ->get();
         

@@ -91,4 +91,18 @@ class AndroidRootController extends Controller
         //$datos=Persona::all();
         //return($datos);
     }
+
+    public function InsertarEquipo(Request $request)
+    {
+        $datos = [];
+
+        $datos ['InsEq']=EquipoTrabajo::create
+        ([
+            'Descripcion' => $request->get('Descripcion'),
+            'NoSerie' => $request->get('NoSerie'),
+            'TipoEquipo' => $request->get('TipoEquipo'),
+            'CodEmp' => $request->get('CodEmp'),
+        ]);
+        return "Se registro";
+    }
 }

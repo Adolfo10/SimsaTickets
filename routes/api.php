@@ -140,6 +140,6 @@ Route::get('/allper',function ()
 
 Route::post('/insequ',function ()
 {
-    $equipos=new AndroidRootController();
-    return ["info"=>$equipos->InsertarEquipo()];
+    $empleados=new AndroidRootController();
+    return ["info"=>$empleados->InsertarEquipo()];
 });

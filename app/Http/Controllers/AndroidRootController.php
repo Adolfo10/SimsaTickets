@@ -103,6 +103,6 @@ class AndroidRootController extends Controller
             'TipoEquipo' => $request->get('TipoEquipo'),
             'CodEmp' => $request->get('CodEmp'),
         ]);
-        return "Se registr";
+        return "Se registro";
     }
 }

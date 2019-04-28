@@ -96,8 +96,7 @@ class AndroidRootController extends Controller
     {
         $datos = [];
 
-        $datos ['InsEq']=EquipoTrabajo::create
-        ([
+        $datos ['InsEq']=EquipoTrabajo::create([
             'Descripcion' => $request->get('Descripcion'),
             'NoSerie' => $request->get('NoSerie'),
             'TipoEquipo' => $request->get('TipoEquipo'),

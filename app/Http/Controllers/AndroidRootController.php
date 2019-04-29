@@ -75,7 +75,7 @@ class AndroidRootController extends Controller
     public function InsertarUsuario(Request $request)
     {
         $datos = [];
-        //$user_nom = ucwords($request->get('NomUsuario'));
+        //$user_nom = ucwords($request->get('NomUsuario'));;
         $datos ['InsUss']=Usuario::create
         ([
             'NomUsuario' => $request->get('NomUsuario'),

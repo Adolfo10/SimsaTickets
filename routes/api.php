@@ -130,11 +130,11 @@ Route::post('/insuss', function (Request $r)
     $ins = new AndroidRootController();
     return ["InsUss"=>$ins->InsertarUsuario($r)];
 });
-//dfdf
+
 Route::get('/allper',function ()
 {
     $empleados=new AndroidRootController();
-    return $empleados->allPers();
+    return ["info"=>$empleados->allPers()];
 });
 
 

@@ -16,7 +16,15 @@ class AndroidRootController extends Controller
 {
     function mostrarHistorial(){
         $datos=[];
-        $datos['problemas']=Problema::whereHas('persona')
+
+        $datos['problemas']=DB::table('personas')
+            ->join('tipopersona','personas.CodTipoPersona','=','tipopersona.id')
+            ->join('equipotrabajo','personas.id','=','equipotrabajo.CodEmp')
+            ->join('problema','equipotrabajo.id','=','problema.CodEqTrab')
+            ->join('tipoproblema','problema.CodTipoProblema','=','tipoproblema.id')
+            ->select('problema.id','problema.NotaProblema','equipotrabajo.Descripcion', 'tipoproblema.NombreProblema',
+                'problema.prioridad', 'problema.estatus')->get();
+        /*$datos['problemas']=Problema::whereHas('persona')
             ->whereHas('equipotrabajo')
             ->whereHas('tipo_problema')
             ->whereHas('tecnico')
@@ -29,7 +37,7 @@ class AndroidRootController extends Controller
 
         $datos['tec']=Persona::whereHas('problematec')
             ->with('problematec')
-            ->get();
+            ->get();*/
 
 
         return($datos);

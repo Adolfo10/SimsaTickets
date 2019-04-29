@@ -24,7 +24,7 @@ class AndroidRootController extends Controller
             ->join('tecnico_problema','problema.id','=','tecnico_problema.CodProblema')
             ->join('personas AS tec','tecnico_problema.CodEmp','=','tec.id')
             ->join('tipoproblema','problema.CodTipoProblema','=','tipoproblema.id')
-            ->select('problema.id','tipoproblema.NombreProblema','emp.NomEmp','tec.NomEmp')->orderBy('problema.id')->get();
+            ->select('problema.id','emp.NomEmp','tipoproblema.NombreProblema','tec.NomEmp')->orderBy('problema.id')->get();
         /*$datos['problemas']=Problema::whereHas('persona')
             ->whereHas('equipotrabajo')
             ->whereHas('tipo_problema')

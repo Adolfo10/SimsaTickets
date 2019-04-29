@@ -95,7 +95,7 @@ class AndroidRootController extends Controller
         $datosPer["IDE"] = Persona::all('id');
         return ($datosPer);*/
         $datosPer = [];
-        $datosPer["Persona"] = Persona::all('id','NomEmp','ApPat','ApMat');
+        $datosPer["Persona"] = Persona::all();
         return ($datosPer);
 
     }

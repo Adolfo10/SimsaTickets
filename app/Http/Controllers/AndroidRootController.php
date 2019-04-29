@@ -75,7 +75,7 @@ class AndroidRootController extends Controller
     public function InsertarUsuario(Request $request)
     {
         $datos = [];
-        //$user_nom = ucwords($request->get('NomUsuario'));
+        //$user_nom = ucwords($request->get('NomUsuario'));;
         $datos ['InsUss']=Usuario::create
         ([
             'NomUsuario' => $request->get('NomUsuario'),
@@ -90,15 +90,14 @@ class AndroidRootController extends Controller
 
     public function allPers()
     {
-        /*$a = new Object();
-        $a["Persona"] = Persona::first();//first
-        return ($a);*/
+     /* $datosPer = [];
+        $datosPer["Persona"] = Persona::all();
+        $datosPer["IDE"] = Persona::all('id');
+        return ($datosPer);*/
         $datosPer = [];
         $datosPer["Persona"] = Persona::all();
         return ($datosPer);
-        //return ["Persona"=>Persona::all()];
-        //$datos=Persona::all();
-        //return($datos);
+
     }
 
     public function InsertarEquipo(Request $request)

@@ -137,8 +137,9 @@ Route::get('/allper',function ()
     return ["info"=>$empleados->allPers()];
 });
 
-Route::post('/insequ',function (Request $r)
+
+Route::post('/insequ',function ()
 {
-    $equipos=new AndroidRootController();
-    return ["InsEq"=>$equipos->InsertarEquipo($r)];
+    $empleados=new AndroidRootController();
+    return ["info"=>$empleados->InsertarEquipo()];
 });

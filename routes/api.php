@@ -134,7 +134,7 @@ Route::post('/insuss', function (Request $r)
 Route::get('/allper',function ()
 {
     $empleados=new AndroidRootController();
-    return ["info"=>$empleados->allPers()];
+    return $empleados->allPers();
 });
 
 

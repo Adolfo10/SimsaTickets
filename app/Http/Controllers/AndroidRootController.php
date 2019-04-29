@@ -16,9 +16,9 @@ use Illuminate\Support\Str;
 class AndroidRootController extends Controller
 {
     function mostrarHistorial(){
-        $datos=[];
+//        $datos=[];
 
-        $datos['problemas']=DB::table('personas AS emp')
+        $datos=DB::table('personas AS emp')
             ->join('equipotrabajo','emp.id','=','equipotrabajo.CodEmp')
             ->join('problema','equipotrabajo.id','=','problema.CodEqTrab')
             ->join('tecnico_problema','problema.id','=','tecnico_problema.CodProblema')

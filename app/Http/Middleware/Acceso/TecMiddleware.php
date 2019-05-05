@@ -16,9 +16,9 @@ class TecMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('persona')->CodTipoPersona <> 2)
+        if(Session::get('persona')== null)
         {
-            abort(404);
+            return redirect('/');
         }
         return $next($request);
 

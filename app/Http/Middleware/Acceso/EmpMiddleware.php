@@ -16,11 +16,10 @@ class EmpMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('persona') == null)
+        if(Session::get('persona')==null)
         {
             return redirect('/');
         }
-
         return $next($request);
     }
 }

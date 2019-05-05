@@ -16,9 +16,10 @@ class RootMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('persona')->CodTipoPersona <> 1)
-            abort(404);
-
+        if(Session::get('persona') == null)
+        {
+            return redirect('/');
+        }
         return $next($request);
     }
 }
